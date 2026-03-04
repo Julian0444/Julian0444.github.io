@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Julian Irusta Roure | Software Engineer</title>
-  <meta name="description" content="Backend-focused Software Engineering student building distributed systems, microservices, CI/CD pipelines, and AI agent workflows." />
+  <title>Julian Irusta Roure | Backend & Systems</title>
+  <meta name="description" content="Backend-focused Software Engineering student building distributed systems, microservices, CI/CD, and practical agent tooling." />
   <meta name="theme-color" content="#0b0f19" />
 
   <style>
@@ -34,7 +34,7 @@
     }
     a{color:inherit; text-decoration:none}
     a:hover{color:var(--accent)}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 64px}
+    .wrap{max-width:var(--max); margin:0 auto; padding:26px 18px 64px}
     .topbar{
       position:sticky; top:0; z-index:10;
       backdrop-filter: blur(10px);
@@ -50,39 +50,44 @@
     }
     .brand{
       display:flex; align-items:center; gap:10px;
-      font-weight:700; letter-spacing:.2px;
+      font-weight:750; letter-spacing:.2px;
     }
     .dot{
       width:10px; height:10px; border-radius:999px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       box-shadow: 0 0 0 3px rgba(96,165,250,.15);
     }
-    nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
     nav a{
       font-size:14px; color:var(--muted);
       padding:6px 10px; border-radius:999px;
     }
     nav a:hover{background:rgba(255,255,255,.06); color:var(--text)}
-    .hero{
-      margin-top:26px;
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    @media (max-width: 880px){
-      .hero{grid-template-columns:1fr}
+    @media (max-width: 900px){
       nav{display:none}
     }
+
     .card{
-      background: rgba(17,24,39,.8);
+      background: rgba(17,24,39,.80);
       border:1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
+
+    .hero{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+    }
+
     .hero-main{padding:22px}
     h1{
-      margin:0 0 8px;
+      margin:0 0 10px;
       font-size:44px;
       line-height:1.05;
       letter-spacing:-.8px;
@@ -91,26 +96,19 @@
       margin:0 0 14px;
       color:var(--muted);
       font-size:16px;
-      max-width: 70ch;
+      max-width: 72ch;
     }
-    .badges{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 18px}
-    .badge{
-      font-size:13px;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-    }
-    .actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:8px}
+
+    .actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
     .btn{
       display:inline-flex; align-items:center; gap:10px;
       padding:10px 14px;
       border-radius: 12px;
       border:1px solid var(--line);
       background: rgba(255,255,255,.04);
-      font-weight:600;
+      font-weight:650;
       font-size:14px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
     }
     .btn.primary{
       background: linear-gradient(135deg, rgba(96,165,250,.25), rgba(52,211,153,.18));
@@ -118,51 +116,117 @@
     }
     .btn:hover{transform: translateY(-1px)}
     .btn:active{transform: translateY(0)}
-    .side{padding:18px}
-    .side h3{margin:2px 0 10px; font-size:16px}
-    .kv{display:grid; grid-template-columns: 120px 1fr; gap:10px; margin:8px 0}
+    .btn small{color:var(--muted); font-weight:600}
+
+    .hero-side{padding:18px}
+    .hero-side h3{margin:2px 0 10px; font-size:16px}
+
+    .pill-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
+      border:1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size:13px;
+    }
+    .muted{color:var(--muted)}
+
+    .mini{
+      display:grid; gap:10px;
+      border-top:1px solid var(--line);
+      margin-top:14px; padding-top:14px;
+    }
+    .mini .row{
+      display:grid;
+      grid-template-columns: 110px 1fr;
+      gap:10px;
+      align-items:start;
+    }
     .k{color:var(--muted); font-size:13px}
     .v{font-size:13px}
+
     .section{
-      margin-top:18px;
+      margin-top:14px;
       padding:18px;
     }
     .section h2{
-      margin:0 0 10px;
+      margin:0 0 12px;
       font-size:20px;
       letter-spacing:-.2px;
     }
+
     .grid{
       display:grid;
       grid-template-columns: repeat(12, 1fr);
       gap:12px;
     }
+    .col-12{grid-column: span 12}
+    .col-7{grid-column: span 7}
+    .col-5{grid-column: span 5}
     .col-6{grid-column: span 6}
     .col-4{grid-column: span 4}
-    .col-12{grid-column: span 12}
     @media (max-width: 900px){
-      .col-6,.col-4{grid-column: span 12}
+      .col-7,.col-5,.col-6,.col-4{grid-column: span 12}
     }
-    .item{
+
+    .panel{
       padding:14px;
       border-radius: 14px;
       border:1px solid var(--line);
       background: rgba(255,255,255,.03);
     }
-    .item h3{
+
+    .panel h3{
       margin:0 0 6px;
       font-size:15px;
+      letter-spacing:-.1px;
     }
-    .meta{
-      color: var(--muted);
-      font-size:13px;
-      margin:0 0 10px;
+    .meta{color:var(--muted); font-size:13px; margin:0 0 10px}
+
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
     }
+    @media (max-width: 900px){
+      .two-col{grid-template-columns: 1fr}
+    }
+
     ul{margin:0; padding-left:18px}
-    li{margin:6px 0; color:var(--text)}
-    .muted{color:var(--muted)}
+    li{margin:6px 0}
+
+    details{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      border-radius: 14px;
+      padding:10px 12px;
+    }
+    details + details{margin-top:10px}
+    summary{
+      cursor:pointer;
+      list-style:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      font-weight:700;
+      padding:4px 2px;
+    }
+    summary::-webkit-details-marker{display:none}
+    .tag{
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:5px 9px;
+      background: rgba(255,255,255,.02);
+      white-space:nowrap;
+    }
+
     .footer{
-      margin-top:18px;
+      margin-top:16px;
       padding:16px 18px;
       display:flex;
       justify-content:space-between;
@@ -171,15 +235,6 @@
       flex-wrap:wrap;
       border-top:1px solid var(--line);
       color:var(--muted);
-      font-size:13px;
-    }
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:7px 10px;
-      border:1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,.03);
-      color: var(--muted);
       font-size:13px;
     }
     .sep{opacity:.35; margin:0 8px}
@@ -195,17 +250,16 @@
 </head>
 
 <body>
-  <header class="topbar">
+  <header class="topbar" id="top">
     <div class="topbar-inner">
       <div class="brand">
         <span class="dot" aria-hidden="true"></span>
         <span>Julian Irusta Roure</span>
       </div>
       <nav aria-label="Primary">
-        <a href="#about">About</a>
+        <a href="#work">Work</a>
         <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
+        <a href="#stack">Stack</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -213,221 +267,269 @@
   </header>
 
   <main class="wrap">
+    <!-- HERO -->
     <section class="hero">
       <div class="card hero-main">
         <h1>Backend & Systems Engineer</h1>
         <p class="subtitle">
-          Software Engineering student focused on building reliable backend systems:
-          microservices, distributed workflows, CI/CD pipelines, and practical AI agent tooling.
-          I like clean architecture, strong interfaces, and shipping production-quality work.
+          I build production-minded backend systems: microservices, CI/CD pipelines, and automation/agent workflows.
+          I care about clean boundaries, reliability, and shipping things that actually run.
         </p>
 
-        <div class="badges" aria-label="Highlights">
-          <span class="badge">Go / Python</span>
-          <span class="badge">Microservices</span>
-          <span class="badge">REST APIs</span>
-          <span class="badge">Docker + CI/CD</span>
-          <span class="badge">Cloud (AWS/Azure)</span>
-          <span class="badge">AI Agents (LangGraph)</span>
-        </div>
-
         <div class="actions">
-          <a class="btn primary" href="https://www.linkedin.com/in/julian-irusta-roure/" target="_blank" rel="noreferrer">
+          <!-- ✅ Resume button (your current filename, URL-encoded) -->
+          <a class="btn primary"
+             href="Julian%20Irusta%20Roure%20-%20Resume%202026%20for%20internships%20(1).pdf"
+             target="_blank" rel="noreferrer">
+            Resume <small>PDF</small>
+          </a>
+
+          <a class="btn" href="https://www.linkedin.com/in/julian-irusta-roure/" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
+
           <a class="btn" href="https://github.com/Julian0444" target="_blank" rel="noreferrer">
             GitHub
           </a>
-          <a class="btn" href="#projects">
-            Featured Projects
-          </a>
-          <a class="btn" href="#contact">
-            Contact
-          </a>
+
+          <a class="btn" href="#work">Selected Work</a>
         </div>
 
-        <p class="muted" style="margin-top:14px">
-          Currently based in San Francisco for an academic exchange program. Open to internship opportunities.
-        </p>
+        <div class="panel" style="margin-top:14px">
+          <h3>Snapshot</h3>
+          <p class="meta">What you can expect from me</p>
+          <div class="two-col">
+            <ul>
+              <li>Go / Python backend development</li>
+              <li>Service boundaries + clean interfaces</li>
+              <li>CI/CD with tests and quality gates</li>
+            </ul>
+            <ul>
+              <li>Event-driven patterns and search integration</li>
+              <li>Dockerized deployments and debugging</li>
+              <li>Fast iteration (Cursor / Claude Code)</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      <aside class="card side" aria-label="Quick facts">
-        <h3>Quick facts</h3>
-        <div class="kv">
-          <div class="k">Focus</div>
-          <div class="v">Backend engineering, distributed systems, developer tooling</div>
+      <aside class="card hero-side" aria-label="Quick facts">
+        <h3>Now</h3>
 
-          <div class="k">Strengths</div>
-          <div class="v">Shipping end-to-end features, clean architecture, debugging & iteration speed</div>
-
-          <div class="k">Recent</div>
-          <div class="v">Built production-style projects with microservices, event-driven messaging, and CI/CD</div>
-
-          <div class="k">Track record</div>
-          <div class="v">Hackathon finalist/award track experience + Teaching Assistant roles</div>
-        </div>
-
-        <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:8px">
+        <div class="pill-row">
           <span class="pill">San Francisco, CA</span>
-          <span class="pill">Backend • Infra</span>
           <span class="pill">Internships</span>
+          <span class="pill">Backend • Infra</span>
         </div>
 
-        <p class="muted" style="margin-top:12px">
+        <div class="mini">
+          <div class="row">
+            <div class="k">Currently</div>
+            <div class="v">Academic exchange program (USF) + building portfolio projects</div>
+          </div>
+
+          <div class="row">
+            <div class="k">Strength</div>
+            <div class="v">Turning messy requirements into a working system with clean structure</div>
+          </div>
+
+          <div class="row">
+            <div class="k">Focus</div>
+            <div class="v">Distributed workflows, microservices, CI/CD, and practical AI agent tooling</div>
+          </div>
+
+          <div class="row">
+            <div class="k">Reach me</div>
+            <div class="v"><a href="#contact">LinkedIn or email</a></div>
+          </div>
+        </div>
+
+        <p class="muted" style="margin:14px 0 0">
+          Tip: if you want a cleaner URL, rename the PDF to <code class="inline">resume.pdf</code> later.
+          (Not required.)
         </p>
       </aside>
     </section>
 
-    <section id="about" class="card section">
-      <h2>About</h2>
+    <!-- SELECTED WORK -->
+    <section id="work" class="card section">
+      <h2>Selected Work</h2>
       <div class="grid">
-        <div class="col-6 item">
-          <h3>What I build</h3>
-          <p class="meta">Production-minded systems</p>
-          <ul>
-            <li>Backend services and APIs with strong boundaries and maintainable structure</li>
-            <li>Microservices workflows, messaging patterns, and search integrations</li>
-            <li>CI/CD pipelines with automated testing and quality gates</li>
-            <li>Agent-style automation that connects tools, retrieval, and evaluation loops</li>
-          </ul>
+        <div class="col-7 panel">
+          <h3>Autonomous Agents — Hackathon Project</h3>
+          <p class="meta">LangGraph • Tool orchestration • Evaluation loop</p>
+
+          <details open>
+            <summary>
+              What it does
+              <span class="tag">3-min demo ready</span>
+            </summary>
+            <ul>
+              <li>Researches a topic across sources and produces a structured digest.</li>
+              <li>Runs parallel steps and loops back when it detects coverage gaps.</li>
+              <li>Built under time pressure with a strong focus on robustness and clarity.</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>
+              What I learned
+              <span class="tag">real-world constraints</span>
+            </summary>
+            <ul>
+              <li>Coordinating parallel pipelines and merging state cleanly.</li>
+              <li>Designing for latency variability (slow tools, fast tools, retries).</li>
+              <li>Keeping it simple enough to ship, but structured enough to extend.</li>
+            </ul>
+          </details>
+
+          <p class="muted" style="margin:12px 0 0">
+            Add your Devpost/demo link here if you want:
+            <code class="inline">devpost.com/software/...</code>
+          </p>
         </div>
-        <div class="col-6 item">
-          <h3>How I work</h3>
-          <p class="meta">Fast iteration, clear interfaces</p>
+
+        <div class="col-5 panel">
+          <h3>Hotel Management System</h3>
+          <p class="meta">Microservices • Messaging • Search • Docker</p>
           <ul>
-            <li>Start from the contract: inputs, outputs, failure modes, observability</li>
-            <li>Prefer simple designs that scale in complexity only when needed</li>
-            <li>Strong bias toward “ship something real” with tests + deployment</li>
-            <li>Comfortable collaborating with AI coding tools (Cursor, Claude Code)</li>
+            <li>Three-service backend architecture with a modern frontend.</li>
+            <li>Event-driven messaging for syncing data across components.</li>
+            <li>Search/indexing integration for fast retrieval + filtering.</li>
           </ul>
+
+          <div class="pill-row" style="margin-top:10px">
+            <span class="pill">Go APIs</span>
+            <span class="pill">RabbitMQ</span>
+            <span class="pill">Solr</span>
+            <span class="pill">Docker</span>
+          </div>
+        </div>
+
+        <div class="col-12 panel">
+          <h3>CI/CD Full-Stack Application</h3>
+          <p class="meta">Django • React • GitHub Actions • Tests • Quality gates</p>
+          <div class="two-col">
+            <ul>
+              <li>Automated testing: unit + E2E checks in the pipeline.</li>
+              <li>Gated deployments to reduce “works on my machine” issues.</li>
+            </ul>
+            <ul>
+              <li>Dockerized workflow for consistent environments.</li>
+              <li>Quality enforcement integrated into the release process.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- EXPERIENCE (more compact, less repetitive) -->
     <section id="experience" class="card section">
       <h2>Experience</h2>
       <div class="grid">
-        <div class="col-6 item">
-          <h3>Teaching Assistant — Software Architecture (I)</h3>
-          <p class="meta">Backend fundamentals with Go • REST APIs • Clean architecture</p>
+        <div class="col-6 panel">
+          <h3>Teaching Assistant — Software Architecture I</h3>
+          <p class="meta">Backend development • Go • REST APIs</p>
           <ul>
-            <li>Led practical sessions on backend development and API design</li>
-            <li>Supported students with project structure, debugging, and best practices</li>
-            <li>Emphasized modularity, clean code, and maintainable service design</li>
+            <li>Ran hands-on sessions focused on backend fundamentals and clean structure.</li>
+            <li>Helped students debug, organize projects, and ship working APIs.</li>
           </ul>
         </div>
-        <div class="col-6 item">
-          <h3>Teaching Assistant — Software Architecture (II)</h3>
-          <p class="meta">Microservices & event-driven workflows</p>
+
+        <div class="col-6 panel">
+          <h3>Teaching Assistant — Software Architecture II</h3>
+          <p class="meta">Microservices • Event-driven workflows</p>
           <ul>
-            <li>Coached end-to-end microservices integration with clear boundaries</li>
-            <li>Worked with event-driven indexing and search-style integrations</li>
-            <li>Introduced performance-minded patterns and practical concurrency</li>
+            <li>Guided an end-to-end microservices workflow with clear service boundaries.</li>
+            <li>Covered event-driven indexing, search integration, and performance patterns.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="card section">
-      <h2>Projects</h2>
+    <!-- STACK -->
+    <section id="stack" class="card section">
+      <h2>Stack</h2>
       <div class="grid">
-        <div class="col-4 item">
-          <h3>Microservices Hotel Platform</h3>
-          <p class="meta">Go • React • Messaging • Search • Docker</p>
+        <div class="col-4 panel">
+          <h3>Languages</h3>
+          <p class="meta">What I code in</p>
           <ul>
-            <li>Service-oriented backend + frontend integration</li>
-            <li>Event-driven messaging and search capabilities</li>
-            <li>Designed around service boundaries and data ownership</li>
+            <li>Go, Python</li>
+            <li>C/C++, SQL</li>
+            <li>JavaScript, HTML/CSS</li>
           </ul>
         </div>
 
-        <div class="col-4 item">
-          <h3>CI/CD Full-Stack App</h3>
-          <p class="meta">Django • React • GitHub Actions • Testing</p>
+        <div class="col-4 panel">
+          <h3>Backend & Data</h3>
+          <p class="meta">Patterns + systems</p>
           <ul>
-            <li>Automated testing workflow (unit + end-to-end)</li>
-            <li>Quality gates and deployment flow</li>
-            <li>Built with production delivery in mind</li>
+            <li>REST APIs, auth patterns, service design</li>
+            <li>Relational + document databases</li>
+            <li>Search / indexing concepts</li>
           </ul>
         </div>
 
-        <div class="col-4 item">
-          <h3>Autonomous Agents Hackathon Project</h3>
-          <p class="meta">LangGraph • Tooling • Evaluation loops</p>
+        <div class="col-4 panel">
+          <h3>DevOps & Cloud</h3>
+          <p class="meta">Shipping & deploying</p>
           <ul>
-            <li>Agent workflow that researches and synthesizes information</li>
-            <li>Parallel steps + self-correcting loop when coverage is insufficient</li>
-            <li>Designed for demoability and real-world extension</li>
-          </ul>
-          <p class="muted" style="margin:10px 0 0">
-            Optional: add a link here to your Devpost page or demo video.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="card section">
-      <h2>Skills</h2>
-      <div class="grid">
-        <div class="col-6 item">
-          <h3>Core</h3>
-          <p class="meta">The tools I use most</p>
-          <ul>
-            <li><strong>Languages:</strong> Go, Python, C/C++, SQL, JavaScript</li>
-            <li><strong>Backend:</strong> REST APIs, auth patterns, service design</li>
-            <li><strong>Datastores:</strong> relational + document databases; search/indexing concepts</li>
-            <li><strong>DevOps:</strong> Docker, CI pipelines, automated tests</li>
-          </ul>
-        </div>
-        <div class="col-6 item">
-          <h3>Platform</h3>
-          <p class="meta">Comfortable across environments</p>
-          <ul>
-            <li><strong>Cloud:</strong> AWS and Azure fundamentals (compute, storage, networking)</li>
-            <li><strong>Frameworks:</strong> React, Django, FastAPI (and related tooling)</li>
-            <li><strong>Developer tools:</strong> Git, Cursor, VS Code, debugging workflows</li>
-            <li><strong>Data:</strong> Python data stack for quick analysis when needed</li>
+            <li>Docker, GitHub Actions, automated testing</li>
+            <li>AWS + Azure fundamentals</li>
+            <li>Developer tooling: Git, Cursor, VS Code</li>
           </ul>
         </div>
       </div>
     </section>
 
+    <!-- EDUCATION -->
     <section id="education" class="card section">
       <h2>Education</h2>
       <div class="grid">
-        <div class="col-6 item">
+        <div class="col-6 panel">
           <h3>Universidad Católica de Córdoba</h3>
-          <p class="meta">Bachelor’s Degree in Software Engineering (Expected Graduation: 2026)</p>
-          <p class="muted">
-            Strong foundation in software engineering, backend systems, and architecture-oriented coursework.
+          <p class="meta">B.S. Software Engineering — Expected Graduation: 2026</p>
+          <p class="muted" style="margin:0">
+            Systems-focused coursework with a strong backend + architecture orientation.
           </p>
         </div>
-        <div class="col-6 item">
+        <div class="col-6 panel">
           <h3>University of San Francisco (USF)</h3>
-          <p class="meta">Academic Exchange Program — Computer Science (2026)</p>
-          <p class="muted">
-            Based in San Francisco during the program; actively building projects and looking for industry experience.
+          <p class="meta">Academic Exchange — Computer Science (2026)</p>
+          <p class="muted" style="margin:0">
+            Based in San Francisco during the program; focused on gaining industry experience.
           </p>
         </div>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="card section">
       <h2>Contact</h2>
       <div class="grid">
-        <div class="col-12 item">
+        <div class="col-12 panel">
           <p style="margin:0 0 10px">
-            If you want to collaborate or discuss opportunities, the fastest way to reach me is via LinkedIn.
+            Best way to reach me: LinkedIn. If you prefer email, that works too.
           </p>
 
           <div class="actions">
-            <a class="btn primary" href="https://www.linkedin.com/in/julian-irusta-roure/" target="_blank" rel="noreferrer">Message on LinkedIn</a>
+            <a class="btn primary" href="https://www.linkedin.com/in/julian-irusta-roure/" target="_blank" rel="noreferrer">
+              Message on LinkedIn
+            </a>
             <a class="btn" href="mailto:jirustaroure@dons.usfca.edu">Email</a>
             <a class="btn" href="https://github.com/Julian0444" target="_blank" rel="noreferrer">GitHub</a>
+
+            <!-- ✅ Resume link again -->
+            <a class="btn"
+               href="Julian%20Irusta%20Roure%20-%20Resume%202026%20for%20internships%20(1).pdf"
+               target="_blank" rel="noreferrer">
+              Resume <small>PDF</small>
+            </a>
           </div>
 
           <p class="muted" style="margin:12px 0 0">
-            Want a stronger version? Add a dedicated “Featured Work” page with screenshots + short case studies.
+            If you want, I can also add “OpenGraph” meta tags so your site has a clean preview on LinkedIn.
           </p>
         </div>
       </div>
@@ -437,7 +539,7 @@
       <div>
         <span>© <span id="y"></span> Julian Irusta Roure</span>
         <span class="sep">•</span>
-        <span class="muted">Built with simple HTML + CSS for GitHub Pages</span>
+        <span class="muted">GitHub Pages • single-file HTML</span>
       </div>
       <div class="muted">
         <a href="#top" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Back to top</a>
