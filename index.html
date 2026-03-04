@@ -1,12 +1,453 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Julian Irusta</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Julian Irusta Roure | Software Engineer</title>
+  <meta name="description" content="Backend-focused Software Engineering student building distributed systems, microservices, CI/CD pipelines, and AI agent workflows." />
+  <meta name="theme-color" content="#0b0f19" />
+
+  <style>
+    :root{
+      --bg:#0b0f19;
+      --card:#111827;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --line:rgba(255,255,255,.08);
+      --accent:#60a5fa;
+      --accent2:#34d399;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --max: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1100px 600px at 15% -10%, rgba(96,165,250,.20), transparent 55%),
+        radial-gradient(900px 500px at 80% 5%, rgba(52,211,153,.12), transparent 50%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    a:hover{color:var(--accent)}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 64px}
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,25,.65);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:12px 18px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700; letter-spacing:.2px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 3px rgba(96,165,250,.15);
+    }
+    nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    nav a{
+      font-size:14px; color:var(--muted);
+      padding:6px 10px; border-radius:999px;
+    }
+    nav a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    .hero{
+      margin-top:26px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 880px){
+      .hero{grid-template-columns:1fr}
+      nav{display:none}
+    }
+    .card{
+      background: rgba(17,24,39,.8);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-main{padding:22px}
+    h1{
+      margin:0 0 8px;
+      font-size:44px;
+      line-height:1.05;
+      letter-spacing:-.8px;
+    }
+    .subtitle{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:16px;
+      max-width: 70ch;
+    }
+    .badges{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 18px}
+    .badge{
+      font-size:13px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+    }
+    .actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:8px}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px;
+      border-radius: 12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      font-weight:600;
+      font-size:14px;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(96,165,250,.25), rgba(52,211,153,.18));
+      border-color: rgba(96,165,250,.35);
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn:active{transform: translateY(0)}
+    .side{padding:18px}
+    .side h3{margin:2px 0 10px; font-size:16px}
+    .kv{display:grid; grid-template-columns: 120px 1fr; gap:10px; margin:8px 0}
+    .k{color:var(--muted); font-size:13px}
+    .v{font-size:13px}
+    .section{
+      margin-top:18px;
+      padding:18px;
+    }
+    .section h2{
+      margin:0 0 10px;
+      font-size:20px;
+      letter-spacing:-.2px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+    }
+    .col-6{grid-column: span 6}
+    .col-4{grid-column: span 4}
+    .col-12{grid-column: span 12}
+    @media (max-width: 900px){
+      .col-6,.col-4{grid-column: span 12}
+    }
+    .item{
+      padding:14px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .item h3{
+      margin:0 0 6px;
+      font-size:15px;
+    }
+    .meta{
+      color: var(--muted);
+      font-size:13px;
+      margin:0 0 10px;
+    }
+    ul{margin:0; padding-left:18px}
+    li{margin:6px 0; color:var(--text)}
+    .muted{color:var(--muted)}
+    .footer{
+      margin-top:18px;
+      padding:16px 18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
+      border:1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size:13px;
+    }
+    .sep{opacity:.35; margin:0 8px}
+    code.inline{
+      background: rgba(0,0,0,.25);
+      border: 1px solid var(--line);
+      padding:2px 6px;
+      border-radius: 8px;
+      font-size: 12px;
+      color: #d1d5db;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Hola, soy Julian Irusta</h1>
-  <p>Este es mi sitio personal en GitHub Pages 🚀</p>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Julian Irusta Roure</span>
+      </div>
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="card hero-main">
+        <h1>Backend & Systems Engineer</h1>
+        <p class="subtitle">
+          Software Engineering student focused on building reliable backend systems:
+          microservices, distributed workflows, CI/CD pipelines, and practical AI agent tooling.
+          I like clean architecture, strong interfaces, and shipping production-quality work.
+        </p>
+
+        <div class="badges" aria-label="Highlights">
+          <span class="badge">Go / Python</span>
+          <span class="badge">Microservices</span>
+          <span class="badge">REST APIs</span>
+          <span class="badge">Docker + CI/CD</span>
+          <span class="badge">Cloud (AWS/Azure)</span>
+          <span class="badge">AI Agents (LangGraph)</span>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="https://www.linkedin.com/in/julian-irusta-roure/" target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+          <a class="btn" href="https://github.com/Julian0444" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <a class="btn" href="#projects">
+            Featured Projects
+          </a>
+          <a class="btn" href="#contact">
+            Contact
+          </a>
+        </div>
+
+        <p class="muted" style="margin-top:14px">
+          Currently based in San Francisco for an academic exchange program. Open to internship opportunities.
+        </p>
+      </div>
+
+      <aside class="card side" aria-label="Quick facts">
+        <h3>Quick facts</h3>
+        <div class="kv">
+          <div class="k">Focus</div>
+          <div class="v">Backend engineering, distributed systems, developer tooling</div>
+
+          <div class="k">Strengths</div>
+          <div class="v">Shipping end-to-end features, clean architecture, debugging & iteration speed</div>
+
+          <div class="k">Recent</div>
+          <div class="v">Built production-style projects with microservices, event-driven messaging, and CI/CD</div>
+
+          <div class="k">Track record</div>
+          <div class="v">Hackathon finalist/award track experience + Teaching Assistant roles</div>
+        </div>
+
+        <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:8px">
+          <span class="pill">San Francisco, CA</span>
+          <span class="pill">Backend • Infra</span>
+          <span class="pill">Internships</span>
+        </div>
+
+        <p class="muted" style="margin-top:12px">
+          Tip: add a PDF resume later as <code class="inline">/resume.pdf</code> and link it here.
+        </p>
+      </aside>
+    </section>
+
+    <section id="about" class="card section">
+      <h2>About</h2>
+      <div class="grid">
+        <div class="col-6 item">
+          <h3>What I build</h3>
+          <p class="meta">Production-minded systems</p>
+          <ul>
+            <li>Backend services and APIs with strong boundaries and maintainable structure</li>
+            <li>Microservices workflows, messaging patterns, and search integrations</li>
+            <li>CI/CD pipelines with automated testing and quality gates</li>
+            <li>Agent-style automation that connects tools, retrieval, and evaluation loops</li>
+          </ul>
+        </div>
+        <div class="col-6 item">
+          <h3>How I work</h3>
+          <p class="meta">Fast iteration, clear interfaces</p>
+          <ul>
+            <li>Start from the contract: inputs, outputs, failure modes, observability</li>
+            <li>Prefer simple designs that scale in complexity only when needed</li>
+            <li>Strong bias toward “ship something real” with tests + deployment</li>
+            <li>Comfortable collaborating with AI coding tools (Cursor, Claude Code)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="card section">
+      <h2>Experience</h2>
+      <div class="grid">
+        <div class="col-6 item">
+          <h3>Teaching Assistant — Software Architecture (I)</h3>
+          <p class="meta">Backend fundamentals with Go • REST APIs • Clean architecture</p>
+          <ul>
+            <li>Led practical sessions on backend development and API design</li>
+            <li>Supported students with project structure, debugging, and best practices</li>
+            <li>Emphasized modularity, clean code, and maintainable service design</li>
+          </ul>
+        </div>
+        <div class="col-6 item">
+          <h3>Teaching Assistant — Software Architecture (II)</h3>
+          <p class="meta">Microservices & event-driven workflows</p>
+          <ul>
+            <li>Coached end-to-end microservices integration with clear boundaries</li>
+            <li>Worked with event-driven indexing and search-style integrations</li>
+            <li>Introduced performance-minded patterns and practical concurrency</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="card section">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="col-4 item">
+          <h3>Microservices Hotel Platform</h3>
+          <p class="meta">Go • React • Messaging • Search • Docker</p>
+          <ul>
+            <li>Service-oriented backend + frontend integration</li>
+            <li>Event-driven messaging and search capabilities</li>
+            <li>Designed around service boundaries and data ownership</li>
+          </ul>
+        </div>
+
+        <div class="col-4 item">
+          <h3>CI/CD Full-Stack App</h3>
+          <p class="meta">Django • React • GitHub Actions • Testing</p>
+          <ul>
+            <li>Automated testing workflow (unit + end-to-end)</li>
+            <li>Quality gates and deployment flow</li>
+            <li>Built with production delivery in mind</li>
+          </ul>
+        </div>
+
+        <div class="col-4 item">
+          <h3>Autonomous Agents Hackathon Project</h3>
+          <p class="meta">LangGraph • Tooling • Evaluation loops</p>
+          <ul>
+            <li>Agent workflow that researches and synthesizes information</li>
+            <li>Parallel steps + self-correcting loop when coverage is insufficient</li>
+            <li>Designed for demoability and real-world extension</li>
+          </ul>
+          <p class="muted" style="margin:10px 0 0">
+            Optional: add a link here to your Devpost page or demo video.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="card section">
+      <h2>Skills</h2>
+      <div class="grid">
+        <div class="col-6 item">
+          <h3>Core</h3>
+          <p class="meta">The tools I use most</p>
+          <ul>
+            <li><strong>Languages:</strong> Go, Python, C/C++, SQL, JavaScript</li>
+            <li><strong>Backend:</strong> REST APIs, auth patterns, service design</li>
+            <li><strong>Datastores:</strong> relational + document databases; search/indexing concepts</li>
+            <li><strong>DevOps:</strong> Docker, CI pipelines, automated tests</li>
+          </ul>
+        </div>
+        <div class="col-6 item">
+          <h3>Platform</h3>
+          <p class="meta">Comfortable across environments</p>
+          <ul>
+            <li><strong>Cloud:</strong> AWS and Azure fundamentals (compute, storage, networking)</li>
+            <li><strong>Frameworks:</strong> React, Django, FastAPI (and related tooling)</li>
+            <li><strong>Developer tools:</strong> Git, Cursor, VS Code, debugging workflows</li>
+            <li><strong>Data:</strong> Python data stack for quick analysis when needed</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="card section">
+      <h2>Education</h2>
+      <div class="grid">
+        <div class="col-6 item">
+          <h3>Universidad Católica de Córdoba</h3>
+          <p class="meta">Bachelor’s Degree in Software Engineering (Expected Graduation: 2026)</p>
+          <p class="muted">
+            Strong foundation in software engineering, backend systems, and architecture-oriented coursework.
+          </p>
+        </div>
+        <div class="col-6 item">
+          <h3>University of San Francisco (USF)</h3>
+          <p class="meta">Academic Exchange Program — Computer Science (2026)</p>
+          <p class="muted">
+            Based in San Francisco during the program; actively building projects and looking for industry experience.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="card section">
+      <h2>Contact</h2>
+      <div class="grid">
+        <div class="col-12 item">
+          <p style="margin:0 0 10px">
+            If you want to collaborate or discuss opportunities, the fastest way to reach me is via LinkedIn.
+          </p>
+
+          <div class="actions">
+            <a class="btn primary" href="https://www.linkedin.com/in/julian-irusta-roure/" target="_blank" rel="noreferrer">Message on LinkedIn</a>
+            <a class="btn" href="mailto:jirustaroure@dons.usfca.edu">Email</a>
+            <a class="btn" href="https://github.com/Julian0444" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+
+          <p class="muted" style="margin:12px 0 0">
+            Want a stronger version? Add a dedicated “Featured Work” page with screenshots + short case studies.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>
+        <span>© <span id="y"></span> Julian Irusta Roure</span>
+        <span class="sep">•</span>
+        <span class="muted">Built with simple HTML + CSS for GitHub Pages</span>
+      </div>
+      <div class="muted">
+        <a href="#top" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Back to top</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
